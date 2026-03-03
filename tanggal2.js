@@ -2,7 +2,7 @@ function formatTanggal(inputTgl) {
     const bagian = inputTgl.slice("-");
 
     if(bagian.length !== 3){
-        console.log("Format tanggal salah");
+        return "format tanggal salah."
     }
 
     const hari = parseInt(bagian[0]);
@@ -21,5 +21,6 @@ function formatTanggal(inputTgl) {
         return "Format tanggal Salah";
     }
 }
+
 
 module.exports = formatTanggal;

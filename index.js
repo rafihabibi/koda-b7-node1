@@ -1,13 +1,24 @@
-const formatTanggal = require("./tanggal.js");
-const readline = require('readline');
+const formatTanggal = require('./tanggal.js');
+const readline = require('redline');
 
-const rl = readline.createInterface({
+function askQuestion(answer) {
+  const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-rl.question("Masukan Tanggal-Bulan-Tahun: ", (inputTgl) => {
-    const hasil = formatTanggal(inputTgl);
-    console.log("Output:", hasil);
+  return new Promise(resolve => {
+    rl.question(answer, (inputTgl) => {
+      rl.close();
+      resolve(inputTgl);
+    });
+  });
+}
 
-})
+async function main() {
+  const inputTgl = askQuestion("Masukkan Tanggal-Bulan-Tahun:", 
+  )
+  const hasil = formatTanggal(inputTgl);
+  console.log("output:", hasil);
+}
+main();
